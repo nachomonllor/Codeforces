@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{           
+    class Program
+    {
+
+
+
+
+
+        static int CheckNineteen(string s)
+        {
+            // string nineteen = "nineteen";
+            //string s = "nniinneetteeeenn";
+
+            Dictionary<char, double> dic =
+                new Dictionary<char, double>();
+            dic['n'] = 0;
+            dic['i'] = 0;
+            dic['e'] = 0;
+            dic['t'] = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if ("niet".Contains(s[i]))
+                {
+                    dic[s[i]]++;
+                }
+            }
+
+            dic['n'] = Math.Floor(dic['n'] / 2.5D);
+            dic['e'] /= 3;
+
+            double min = 101;
+
+            foreach (KeyValuePair<char, double> kvp in dic)
+            {
+                min = Math.Min(min, kvp.Value);
+            }
+
+            return (int)min;
+        }
+
+
+        static void Main(string[] args)
+        {
+
+
+            // string s = "nneteenabcnneteenabcnneteenabcnneteenabcnneteenabcii";
+            //string s = "ninettttttttttaaaatttttteennnnnnnnnnnnnnn";
+            // string s = "nineteenninetnineeneeneteenninet";
+
+            //string s = "nineteenineteenineteenineteenineteenineteen";
+             //string s = "ninetee ninetee ninetee";
+            //string s = "nineteenineteenineteenineteen";
+            //Console.WriteLine(CheckNineteen(s));
+           // string s = "nineteenineteen";
+            string s = Console.ReadLine().Trim();
+            Console.WriteLine(CheckNineteen(s));
+
+            Console.ReadLine();
+        }   
+    }       
+}
